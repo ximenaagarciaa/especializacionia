@@ -24,4 +24,4 @@ def obtener_dato_de_prueba(pregunta):
     datos = respuesta.json()
     return datos["candidates"][0]["content"]["parts"][0]["text"]
              
-print( obtener_dato_de_prueba("Confirma en una frase corta que esta conexión funciona"))
+print( obtener_dato_de_prueba("GENERA UN TEXTO DE BIENBENIDA PARA LOS PASAJEROS EUN HOTEL EN TORRES DEL PAINE"))
