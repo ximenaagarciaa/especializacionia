@@ -4,9 +4,14 @@ import requests
 from dotenv import load_dotenv
 load_dotenv()
 #constantes
-MODELO = "gemini-flash-latest"
+#MODELO = "gemini-flash-latest"
+MODELO = "gemini-3.6-flash"
 URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/"
 API_KEY = os.getenv("GEMINI_API_KEY")
+#precio_entrada= 0.75/1000000
+#precio_salida=3.75/  1000000
+precio_entrada= 0.00000075
+precio_salida=0.00000375
 
 
 # función para crear la solicitud
@@ -58,9 +63,22 @@ def obtener_dato_de_prueba(pregunta):  # pregunta = "Confirma la conexion"
     # body = resultado de armar_peticion
 
     datos = enviar_peticion(url, body)
+    costo = calcular_costo(datos, precio_entrada, precio_salida)
+    print(f"Costo de la petición: ${costo:.6f} USD")  
     return extraer_texto(datos)
 
+#calcular_costo(datos:dict,precio_entrada:float, precio_salida:float) ->float
+def calcular_costo(datos, precio_entrada, precio_salida):
+   
+    uso= datos["usageMetadata"]
+    token_entrada =uso["promptTokenCount"]
+    token_salida= uso["candidatesTokenCount"]
+    token_razonamiento= uso["thoughtsTokenCount"]
+    costo_total = token_entrada* precio_entrada + (token_razonamiento + token_salida)* precio_salida
+    return costo_total
 try:
+
    print(obtener_dato_de_prueba("Confirma en una frase corta que esta conexión funciona"))
+
 except (ValueError, RuntimeError) as error:
     print ("No se pudo concretar la operación, el error es:", error)  
