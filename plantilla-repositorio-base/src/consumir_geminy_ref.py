@@ -33,16 +33,16 @@ def armar_peticion(pregunta):  # pregunta = "Confirma la conexion"
 def enviar_peticion(url, body):
     try:        
        respuesta = requests.post(url, json=body, timeout=30)
-    except respuesta.exceptions.ConnectionError:
+    except requests.exceptions.ConnectionError:
         raise RuntimeError("No se pude realizar la conexión")
-    except respuesta.exceptions.Timeout:
+    except requests.exceptions.Timeout:
         raise RuntimeError("Se agoto el tiempo")
     if respuesta.status_code!= 200:
        raise RuntimeError(f"Error en la petición, Status Code: {respuesta.status_code}")  
 
     try:
        return respuesta.json()
-    except respuesta.exceptions.JSONDecodeError:
+    except requests.exceptions.JSONDecodeError:
         raise RuntimeError("La respuesta del servidor, no llego en el formato correcto")
     
 
@@ -52,7 +52,7 @@ def extraer_texto(datos):  # Gemini
     try:
        return datos["candidates"][0]["content"]["parts"][0]["text"]
     except (KeyError , IndexError):
-       raise RuntimeError("La respueta no recibe  el texto generado en el lugar definido")
+       raise RuntimeError("La respuesta no contiene  el texto generado en el lugar definido")
 
      
 
