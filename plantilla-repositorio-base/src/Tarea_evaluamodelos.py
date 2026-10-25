@@ -10,7 +10,7 @@ pregunta = "Eres un experto en horticultura en Chile. Indica los requisitos para
 URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/"
 API_KEY = os.getenv("GEMINI_API_KEY")
 
-
+#Valores referenciales obtenidos desde https://ai.google.dev/gemini-api/docs/pricing?hl=es-419, con fecha 24-10-2026
 modelos = [
     {
         "nombre": "gemini-3.5-flash-lite",
