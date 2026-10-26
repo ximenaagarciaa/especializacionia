@@ -39,6 +39,6 @@ pip install -r requirements.txt para poder usarlas en la aplicacion.
 - Fecha: 25/10/2026
 - Encontrado: el nombre de la variable de .env.example incorrecto
 - Corregido  y commiteado
-- Detectado antes de subir la entrega de gate1
+- Detectado antes de subir la entrega de gate 1
 
 
