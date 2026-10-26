@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import time
 load_dotenv()
 #constantes
-
+#Esta pieza de código corresponde a una actividad de evaluación de arquitectura de modelos de lenguaje
 pregunta = "Eres un experto en horticultura en Chile. Indica los requisitos para sembrar tomates en Villa Alemana, Región de Valparaíso, considerando su clima mediterráneo.Incluye: época de siembra, temperatura, horas de sol, suelo, riego, nutrientes y distancia de plantaciónComo agricultor dime el cultivo de hortaliza mas productivo para la v region de chile"
 URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/"
 API_KEY = os.getenv("GEMINI_API_KEY")

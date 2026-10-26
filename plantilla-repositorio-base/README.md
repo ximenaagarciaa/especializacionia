@@ -6,10 +6,12 @@ modificado el 10 2026 Esta es la estructura base que vas a usar como punto de pa
 
 Estos pasos se completan de forma progresiva a lo largo de la Unidad U1.2, no todos el mismo día:
 
-1. Clona este repositorio utilizando el comando "git clone <url-del-repositorio>
-2. Crea tu entorno virtual de Python usando el comando <source venv/Scripts/activate> y activalo usando el comando <deactivate>
-3. Instala las dependencias del proyecto usando el comando <pip install -r requirements.txt> para poder usarlas en la aplicacion.
+1. Clona este repositorio utilizando el comando git clone https://github.com/ximenaagarciaa/especializacionia.git
+2. Crea tu entorno virtual de Python usando el comando python -m venv venv y activalo usando el comando source venv/Scripts/activate
+3. Instala las dependencias del proyecto usando el comando 
+pip install -r especializacionia/requirements.txt.txt para poder usarlas en la aplicacion.
 4. Copia `.env.example` a un archivo nuevo llamado `.env`, y completa ahí tus credenciales reales (llaves de API, tokens). El archivo `.env` nunca se sube al repositorio: ya está excluido en `.gitignore`.
+5. Para comprobar que este bien la instalación , ejecuta python  especializacionia/plantilla-repositorio-base/src/consumir_gemini_ref.py 
 
 ## Estructura de carpetas
 
@@ -28,8 +30,8 @@ Estos pasos se completan de forma progresiva a lo largo de la Unidad U1.2, no to
 
 
 ## Registro del ensayo de instalación limpia
- 
-- Fecha: 23/10/2026
-- Encontrado: faltaba 'requests' en requirements.txt (estaba instalado a mano)
-- Corregido: agregado con 'pip freeze > requirements.txt' y commiteado
-- Resultado tras la corrección: el proyecto corre sin intervención manual
+
+- Fecha: 25/10/2026
+- Encontrado: faltaba pip install python-dotenv en el entorno virtual
+- Corregido y regenerado pip freeze > requirements.txt, agregado  y commiteado
+- Detectado antes de subir la entrega de gate1
