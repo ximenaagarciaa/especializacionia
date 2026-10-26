@@ -15,8 +15,7 @@ load_dotenv()
 MODELO = "gemini-3.6-flash"
 URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/"
 API_KEY = os.getenv("GEMINI_API_KEY")
-#precio_entrada= 0.75/1000000
-#precio_salida=3.75/  1000000
+
 precio_entrada= 0.00000075
 precio_salida=0.00000375
 pregunta = "que cultivos se deben sembrar en primavera"
@@ -53,7 +52,9 @@ def armar_peticion(MODELO, pregunta, systeminstruction, response_schema=None):
 
 # función envía la petición
 def enviar_peticion(url, body):
-    try:     
+    try:    
+
+       
        respuesta = requests.post(url, json=body, timeout=30)
     except requests.exceptions.ConnectionError:
         raise RuntimeError("No se pude realizar la conexión")
